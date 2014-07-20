@@ -37,6 +37,17 @@ var tests = {
     settings.initConfig(require('../conf'));
     console.log(cleaner);
     done();
+  },
+
+  clear: function(test) {
+    test.expect(1);
+
+    var fn = function(err) {
+      test.ifError(err);
+      test.done();
+    };
+
+    cleaner.clear(30, fn);
   }
 };
 

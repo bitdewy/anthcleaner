@@ -40,6 +40,17 @@ var tests = {
     anthcleaner.initConfig(require('../conf'));
     test.done();
   },
+
+  run: function(test) {
+    test.expect(1);
+
+    var fn = function(err) {
+      test.ifError(err);
+      test.done();
+    };
+
+    anthcleaner.run(fn);
+  }
 };
 
 exports = module.exports = tests;

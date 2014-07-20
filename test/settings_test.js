@@ -33,12 +33,25 @@ var settings = require('../lib/settings');
 var tests = {
 
   setUp: function(done) {
-    settings.initConfig(require('../conf'));
     done();
   },
 
   initConfig: function(test) {
-    console.log(settings);
+    test.expect(2);
+
+    var config = {
+      mongo: 'mongo',
+      initConfig: 'initConfig'
+    };
+
+    var env = settings.initConfig(config);
+    test.equal(env.mongo, config.mongo, '');
+
+    config = {
+      mongo: 'whatever'
+    };
+
+    test.notEqual(env.mongo, config.mongo, '');
     test.done();
   }
 

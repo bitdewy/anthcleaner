@@ -39,7 +39,21 @@ var tests = {
   },
 
   connect: function(test) {
-    console.log(datasource);
+    test.expect(1);
+
+    var fn = function(err) {
+      test.ifError(err);
+      test.done();
+    };
+
+    datasource.connect(fn);
+  },
+
+  next: function(test) {
+    test.done();
+  },
+
+  delete: function(test) {
     test.done();
   }
 };
