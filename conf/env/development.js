@@ -21,7 +21,8 @@ var configuration = {
   logging: {
     debug: path.join(__dirname, '../../logs/debug.log'),
     exceptions: path.join(__dirname, '../../logs/exceptions.log')
-  }
+  },
+  days: 30
 };
 
 exports = module.exports = configuration;
